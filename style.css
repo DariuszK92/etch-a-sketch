@@ -1,0 +1,68 @@
+/*Retro font connection*/
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
+*{
+    background-color: black;
+    font-family: 'VT323';
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+    h1{
+        color: white;
+        font-size: 52px;
+        margin: 0;
+    }
+    #title{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (max-width: 599px) {
+    h1{
+        color: white;
+        font-size: 42px;
+        margin: 0;
+    }
+    #title{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+#footer{
+    height:40px;
+   background-color: black;
+   color: white;
+    font-size: 22px;
+   width:100%;
+    margin:0;
+    position:fixed;
+    z-index: 2;
+    bottom:0; 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #github{
+    height:20px;
+    margin-left:10px;
+  
+  }
+  #github:hover{
+     opacity: 0.40;
+   }
