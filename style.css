@@ -65,12 +65,13 @@
  
 }
 #sketch{
-  height:50vh;
-  width:50vh;
+  height:60vh;
+  width:60vh;
   background-color:white;
   border: 10px solid grey;
   display: flex;
   flex-wrap: wrap;
+  cursor: crosshair;
 }
 
 /*End of main content stylization*/
@@ -85,8 +86,19 @@ label, p{
 }
 
 #sketch > div{
-    border: 1px solid black;
+    
     background-color: white;   
+}
+
+.noborder{
+    border: 0;
+}
+.border{
+    border: 1px solid black;
+}
+
+button{
+    color:white;
 }
 
 input{
