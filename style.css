@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+/* Styling big screens*/
 @media screen and (min-width: 600px) {
     h1{
         color: white;
@@ -24,7 +25,9 @@
     }
     
 }
+/* End of big screen styling*/
 
+/* Styling small screens*/
 @media screen and (max-width: 599px) {
     h1{
         color: white;
@@ -35,15 +38,152 @@
         position: fixed;
         top: 0;
         width: 100%;
-        height: 60px;
+        height: 80px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 }
+/* End of small screen styling*/
 
+/*Styling main content- head 80px, footer 40px*/
 
+#content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  position:fixed;
+  top:80px;
+  height:calc(100vh - 120px);
+  width:100%;
+}
 
+#toolbox{
+  height:50vh;
+  width:20vw;
+ 
+}
+#sketch{
+  height:50vh;
+  width:50vh;
+  background-color:white;
+  border: 10px solid grey;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*End of main content stylization*/
+
+/*Toolbox styling*/
+label, p{
+    color:white;
+    font-size: 1.5rem;
+    background-color: transparent;
+    text-align: center;
+    margin: 0;
+}
+
+#sketch > div{
+    border: 1px solid black;
+    background-color: white;   
+}
+
+input{
+    width: 90%;
+  
+}
+
+input[type=range] {
+    height: 36px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 19px;
+    cursor: pointer;
+    animate: 0.2s;
+   
+    background: #808080;
+    border-radius: 0px;
+    border: 2px solid #FFFFFF;
+  }
+  input[type=range]::-webkit-slider-thumb {
+  
+    border: 3px solid #FFFFFF;
+    height: 26px;
+    width: 21px;
+    border-radius: 0px;
+    background: #050421;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #808080;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 19px;
+    cursor: pointer;
+    animate: 0.2s;
+   
+    background: #808080;
+    border-radius: 0px;
+    border: 2px solid #FFFFFF;
+  }
+  input[type=range]::-moz-range-thumb {
+ 
+    border: 3px solid #FFFFFF;
+    height: 26px;
+    width: 21px;
+    border-radius: 0px;
+   
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 19px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #808080;
+    border: 2px solid #FFFFFF;
+    border-radius: 0px;
+    
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #808080;
+    border: 2px solid #FFFFFF;
+    border-radius: 0px;
+   
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    
+    border: 3px solid #FFFFFF;
+    height: 26px;
+    width: 21px;
+    border-radius: 0px; 
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #808080;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #808080;
+  }
+  
+/*Footer stylization*/
 #footer{
     height:40px;
    background-color: black;
@@ -66,3 +206,4 @@
   #github:hover{
      opacity: 0.40;
    }
+
