@@ -99,6 +99,7 @@ label, p{
 
 button{
     color:white;
+  border: 1px white solid;
 }
 
 input{
@@ -194,6 +195,24 @@ input[type=range] {
   input[type=range]:focus::-ms-fill-upper {
     background: #808080;
   }
+
+#grid-button{
+  font-size:22px;
+  width:150px;
+  height:40px;
+}
+
+.btn{
+  font-size:22px;
+  width:150px;
+  height:40px;
+  margin-bottom: 10px;
+}
+
+.button-clicked{
+  background-color:white;
+  color:black;
+}
   
 /*Footer stylization*/
 #footer{
@@ -218,4 +237,5 @@ input[type=range] {
   #github:hover{
      opacity: 0.40;
    }
+
 

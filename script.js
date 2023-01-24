@@ -30,10 +30,11 @@ slider.addEventListener('mousemove', squareSliderValue);
 //Creation of gridlines onload
 function initialDivs(){
     for(let i=0; i<2500;i++){
-        const div = document.createElement("div");
-        container.appendChild(div);  
-        div.style.setProperty('width',`calc(100%/50)`);
-        div.className = "children";
+        const childDiv = document.createElement("div");
+        container.appendChild(childDiv);  
+        childDiv.style.setProperty('width',`calc(100%/50)`);
+        childDiv.classList.add('children'); 
+        let isGridBtnClicked = false;
         }      
 }
 
@@ -41,41 +42,60 @@ window.addEventListener("load", initialDivs);
 
 //Create childs for a div by moving the slider
 const container = document.getElementById("sketch");
+let isGridBtnClicked = "no";
+
 const createDivs = () => {
         while(container.firstChild){
-            container.removeChild(container.lastChild)
+          container.removeChild(container.lastChild);
         }
        for(let i=0; i<squareSliderValue;i++){
-        const childDiv = document.createElement("div");
-        container.appendChild(childDiv);  
-        childDiv.style.setProperty('width',`calc(100%/${currentSliderValue})`);
-        childDiv.className = "children";
-       
-        }      
-}
+          const childDiv = document.createElement("div");
+          container.appendChild(childDiv);  
+          childDiv.style.setProperty('width',`calc(100%/${currentSliderValue})`);
+            if(isGridBtnClicked==="yes"){
+            childDiv.classList.add('children', 'border');
+            }
+            else{
+            childDiv.classList.add('children','noborder'); 
+            }   
+        }             
+};
 
 slider.addEventListener('mousemove', createDivs);
 
-//Removing borders from child elements
+//Removing/adding borders from container grid elements
 
-
+const gridBtn = document.getElementById("grid-button");
+gridBtn.addEventListener('click', addGrid);
 function addGrid(){
-    const boxes = document.getElementsByClassName('children');
-    for (const children of boxes) {
-    children.classList.remove('noborder');
-    children.classList.add('border');
-  }
-}
-
-
-function removeGrid(){
-    const boxes = document.getElementsByClassName('children');
+    let isBorderApplied=document.getElementsByClassName('border');
+   
+    if (isBorderApplied.length > 0) {
+         const boxes = document.getElementsByClassName('children');
     for (const children of boxes) {
     children.classList.remove('border');
     children.classList.add('noborder');
+    
   }
-}
-//Clear all
+  isGridBtnClicked = "no";
+  gridBtn.classList.remove('button-clicked');
+  }
+      else{
+        const boxes = document.getElementsByClassName('children');
+    for (const children of boxes) {
+    children.classList.add('border');
+    children.classList.remove('noborder');
+    }
+    isGridBtnClicked = "yes";
+    gridBtn.classList.add('button-clicked');
+      }
+    }
 
-//Coloring the divs
+
+//Coloring/ the divs
+let brushType = "color";
+
+
+
+
 
