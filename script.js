@@ -92,10 +92,54 @@ function addGrid(){
     }
 
 
-//Coloring/ the divs
-let brushType = "color";
+//Coloring/erasing the divs
+
+const colorBtn = document.getElementById('color-button');
+const rainbowBtn = document.getElementById('rainbow-button');
+const eraserBtn = document.getElementById('eraser-button');
+
+let brushType="color";
+colorBtn.onclick = () =>{
+  brushType="color";
+  chooseColor();
+}
+rainbowBtn.onclick = () =>{
+  brushType="rainbow";
+  chooseColor();
+}
+eraserBtn.onclick = () =>{
+  brushType="eraser";
+  chooseColor();
+}
+
+function chooseColor(){
+  if(brushType==="color"){
+    colorBtn.classList.add('button-clicked');
+    rainbowBtn.classList.remove('button-clicked');
+    eraserBtn.classList.remove('button-clicked');
+    console.log(brushType)
+  }
+  else if(brushType==="rainbow"){
+    colorBtn.classList.remove('button-clicked');
+    rainbowBtn.classList.add('button-clicked');
+    eraserBtn.classList.remove('button-clicked');
+    console.log(brushType)
+  }
+  else{
+    colorBtn.classList.remove('button-clicked');
+    rainbowBtn.classList.remove('button-clicked');
+    eraserBtn.classList.add('button-clicked');
+    console.log(brushType)
+  }
+}
 
 
-
-
-
+//Setting the background
+let theInput = document.getElementById("background-color");
+theInput.addEventListener("input", function(){
+  let theColor = theInput.value;
+  const childDivs = document.querySelectorAll('.children');
+  childDivs.forEach(children =>{
+    children.style.backgroundColor = theColor;
+  })
+});
