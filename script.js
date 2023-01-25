@@ -183,3 +183,15 @@ function pickColor(){
 };
 
 theInput.addEventListener("input", pickColor)
+
+
+//Cleaning the whole grid
+
+const cleanBtn = document.getElementById("clean-button");
+cleanBtn.onclick = () =>{
+  let theColor = theInput.value;
+  const childDivs = document.querySelectorAll('.children');
+  childDivs.forEach(children =>{
+    children.style.backgroundColor = theColor;
+  })
+}

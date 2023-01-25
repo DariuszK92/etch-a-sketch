@@ -8,7 +8,8 @@
 }
 
 /* Styling big screens*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px), 
+       screen and (min-height: 700px) {
     h1{
         color: white;
         font-size: 52px;
@@ -23,12 +24,39 @@
         justify-content: center;
         align-items: center;
     }
+    #sketch{
+      height:500px;
+      width:500px;
+      background-color:white;
+      border: 10px solid grey;
+      display: flex;
+      flex-wrap: wrap;
+      cursor: crosshair;
+    }
+    #toolbox{
+      height:500px;
+      width:200px;
+    }
+    .btn{
+      font-size:22px;
+      width:150px;
+      height:40px;
+      margin-bottom: 10px;
+    }
+    label, p{
+      color:white;
+      font-size: 1.5rem;
+      background-color: transparent;
+      text-align: center;
+      margin: 0;
+  }
     
 }
 /* End of big screen styling*/
 
 /* Styling small screens*/
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 799px), 
+       screen and (max-height: 699px) {
     h1{
         color: white;
         font-size: 42px;
@@ -43,6 +71,33 @@
         justify-content: center;
         align-items: center;
     }
+
+    #sketch{
+      height:300px;
+      width:300px;
+      background-color:white;
+      border: 10px solid grey;
+      display: flex;
+      flex-wrap: wrap;
+      cursor: crosshair;
+    }
+    #toolbox{
+      height:300px;
+      width:100px;
+    }
+    .btn{
+      font-size:15px;
+      width:100px;
+      height:20px;
+      margin-bottom: 5px;
+    }
+    label, p{
+      color:white;
+      font-size: 1rem;
+      background-color: transparent;
+      text-align: center;
+      margin: 0;
+  }
 }
 /* End of small screen styling*/
 
@@ -59,31 +114,13 @@
   width:100%;
 }
 
-#toolbox{
-  height:50vh;
-  width:20vw;
- 
-}
-#sketch{
-  height:60vh;
-  width:60vh;
-  background-color:white;
-  border: 10px solid grey;
-  display: flex;
-  flex-wrap: wrap;
-  cursor: crosshair;
-}
+
+
 
 /*End of main content stylization*/
 
 /*Toolbox styling*/
-label, p{
-    color:white;
-    font-size: 1.5rem;
-    background-color: transparent;
-    text-align: center;
-    margin: 0;
-}
+
 
 #sketch > div{
     
@@ -107,10 +144,17 @@ input{
   
 }
 
+input#paint-color, input#background-color{
+  margin-top:5px;
+  margin-bottom: 10px;
+}
+
+
+
 input[type=range] {
     height: 36px;
     -webkit-appearance: none;
-    margin: 10px 0;
+    margin: 0 0;
     width: 100%;
   }
   input[type=range]:focus {
@@ -196,18 +240,9 @@ input[type=range] {
     background: #808080;
   }
 
-#grid-button{
-  font-size:22px;
-  width:150px;
-  height:40px;
-}
 
-.btn{
-  font-size:22px;
-  width:150px;
-  height:40px;
-  margin-bottom: 10px;
-}
+
+
 
 .button-clicked{
   background-color:white;
