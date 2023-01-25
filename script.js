@@ -1,5 +1,4 @@
 
-
 const paraSlider = document.getElementById("slider-value");
 const slider = document.getElementById("pixels");
 
@@ -23,19 +22,22 @@ slider.addEventListener('mousemove', currentSliderValue);
 //Get square value of divs to calculate number of divs needed
 let squareSliderValue =() =>{
  squareSliderValue = slider.value*slider.value;
- console.log(squareSliderValue);
+ 
 }
 slider.addEventListener('mousemove', squareSliderValue);
 
 //Creation of gridlines onload
 function initialDivs(){
-    for(let i=0; i<2500;i++){
+    for(let i=0; i<625;i++){
         const childDiv = document.createElement("div");
         container.appendChild(childDiv);  
-        childDiv.style.setProperty('width',`calc(100%/50)`);
+        childDiv.style.setProperty('width',`calc(100%/25)`);
         childDiv.classList.add('children'); 
         let isGridBtnClicked = false;
-        }      
+        pickColor();
+        childDiv.addEventListener('mouseover', changeColor)
+        }     
+         
 }
 
 window.addEventListener("load", initialDivs);
@@ -54,11 +56,16 @@ const createDivs = () => {
           childDiv.style.setProperty('width',`calc(100%/${currentSliderValue})`);
             if(isGridBtnClicked==="yes"){
             childDiv.classList.add('children', 'border');
+            pickColor();
+            childDiv.addEventListener('mouseover', changeColor)
             }
             else{
-            childDiv.classList.add('children','noborder'); 
+            childDiv.classList.add('children','noborder');
+            pickColor(); 
+            childDiv.addEventListener('mouseover', changeColor)
             }   
-        }             
+        }  
+                   
 };
 
 slider.addEventListener('mousemove', createDivs);
@@ -79,15 +86,18 @@ function addGrid(){
   }
   isGridBtnClicked = "no";
   gridBtn.classList.remove('button-clicked');
+
   }
       else{
         const boxes = document.getElementsByClassName('children');
     for (const children of boxes) {
     children.classList.add('border');
     children.classList.remove('noborder');
+    
     }
     isGridBtnClicked = "yes";
     gridBtn.classList.add('button-clicked');
+    
       }
     }
 
@@ -134,12 +144,42 @@ function chooseColor(){
 }
 
 
-//Setting the background
+
+const colorPicker = document.getElementById('paint-color');
+let brushColor=colorPicker.value;
+
+function changeColor(e){
+  if(brushType==='color'){
+  let brushColor = colorPicker.value;
+  e.target.style.backgroundColor = brushColor;
+  console.log(brushType)
+  }
+  else if(brushType==='rainbow'){
+  let redColor = (Math.random()*256);
+  let greenColor = (Math.random()*256);
+  let blueColor = (Math.random()*256);
+  e.target.style.backgroundColor = `rgb(${redColor},${greenColor},${blueColor})`;
+  console.log(brushType)
+  }
+  else if(brushType==='eraser'){
+    let brushColor = colorPicker.value;
+    let theColor = theInput.value;
+  e.target.style.backgroundColor = theColor;
+  console.log(brushType)
+  }
+}
+
+
+
+//Setting the background color
 let theInput = document.getElementById("background-color");
-theInput.addEventListener("input", function(){
+
+function pickColor(){
   let theColor = theInput.value;
   const childDivs = document.querySelectorAll('.children');
   childDivs.forEach(children =>{
     children.style.backgroundColor = theColor;
   })
-});
+};
+
+theInput.addEventListener("input", pickColor)
