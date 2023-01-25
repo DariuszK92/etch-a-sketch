@@ -1,7 +1,7 @@
-## Etch-a-sketch
+# Etch-a-sketch
 Page made as a part of The Odin Project course.
 
-# About
+## About
 
 Page created with HTML, CSS and JS. Added some basic resposivness. 
 
